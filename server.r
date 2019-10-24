@@ -2,6 +2,10 @@
 
 function(input, output, session) {
   
+  observe({
+    if(input$N>=input$K) updateSliderInput(session,"N",value=input$K)
+  })
+  
     kinetics<-function(densren,eatAT,N,K){
     dren1<-densren/100 # densite de renards par ha
     dayintake<-eatAT/2*dren1 # prelevement journalier de 3 femelles/renard (si 6 campagnols manges)
