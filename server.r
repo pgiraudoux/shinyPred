@@ -4,7 +4,7 @@ function(input, output, session) {
   
   observe({
     if(input$N>=input$K) updateSliderInput(session,"N",value=input$K)
-  })
+      })
   
     kinetics<-function(densren,eatAT,N,K){
     dren1<-densren/100 # densite de renards par ha
@@ -33,12 +33,31 @@ function(input, output, session) {
       Ntr1[i]<-Ntr1[i-1]-dayintake*hol2(Ntr1[i-1]) # avec les renards
     }
     data.frame(Nt=Nt,Ntr1=Ntr1)
-  }
-  
-  
+    }
+    
+    reads<-function(tab){
+      inFile <- tab
+      if (is.null(inFile))
+        return(NULL)
+      tbl <- read.csv(inFile$datapath, header=TRUE, sep="\t",  dec =".")
+      return(tbl)
+    }
+   
+    
+  tabpieg<-reactive(reads(input$file1))
   dens2<-reactive(kinetics(input$densren,input$eatAT,input$N,input$K))
-
   
+  output$table.output<-renderTable({tabpieg()})
+  output$table.output2<-renderText(tabpieg()[,1])
+    
+  # output$table.output <- renderTable({
+  #   inFile <- input$file1
+  #   if (is.null(inFile))
+  #     return(NULL)
+  #   tbl <- read.csv(inFile$datapath, header=TRUE, sep="\t",  dec =".")
+  #   return(tbl)
+  # })
+
   
   output$plot1 <- renderPlot({
     par(mar=c(5.1,4.1,4.1,3))
