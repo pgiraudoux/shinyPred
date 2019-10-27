@@ -69,7 +69,7 @@ function(input, output, session) {
  
   output$plot1 <- renderPlot({ # envoie le graphe
     par(mar=c(5.1,4.1,4.1,3))
-    plot(1:length(dens2()$Nt),dens2()$Nt*2,type="l",las=1,xlab="Jours",ylab="N campagnols/ha")
+    plot(1:length(dens2()$Nt),dens2()$Nt*2,type="l",las=1,xlab="Jours",ylab="N campagnols/ha",ylim=range(dens2()$Nt*2,dens2()$Ntr1p*2))
     lines(1:length(dens2()$Nt),dens2()$Ntr1p*2,col="green")
     lines(1:length(dens2()$Nt),dens2()$Ntr1*2,col="red")
     axis(4,at=dens2()$Nt[length(dens2()$Nt)]*2,labels=round(dens2()$Nt[length(dens2()$Nt)]*2,0),col.axis="black",col.ticks="black",las=1)
