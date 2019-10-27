@@ -14,7 +14,6 @@ fluidPage(
   
   mainPanel(
     tableOutput(outputId = 'table.output'),
-    textOutput(outputId = 'table.output2'),
     plotOutput('plot1')
     
   )
