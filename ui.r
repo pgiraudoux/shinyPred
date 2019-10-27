@@ -7,7 +7,8 @@ fluidPage(
     sliderInput('eatAT','Nombre  maximum de campagnols mangés par jour, par prédateur', value = 6, min = 0, max = 20, step=1),
     sliderInput('N','Densité initiale de campagnols (ind./ha)', value = 2,   min = 2, max = 1000,step=1),
     sliderInput('K','K: densité maximale potentielle de campagnols (ind./ha)', value = 500,   min = 10, max = 1000,step=10),
-    fileInput('file1', 'Tableau de piégeage', accept=c('text/csv', 'text/comma-separated- values,text/plain', '.csv'))
+    numericInput('area','Surface surveillée (ha)',min=1,value=1),
+    fileInput('file1', 'Tableau de piégeage', accept=c('text/tab telimited with header', '.txt'))
   ),
 
   
