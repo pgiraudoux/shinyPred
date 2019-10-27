@@ -1,2 +1,2 @@
-# shinyPred patrick.giraudoux@univ-fcomte.fr
+# shinyPred
 shiny app to analyse the impact of predation on a growing vole population
