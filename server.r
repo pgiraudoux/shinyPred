@@ -6,6 +6,7 @@ function(input, output, session) {
   observe({
     if(input$N>=input$K) updateSliderInput(session,"N",value=input$K)
       })
+
   
   ## lit le fichier text
   reads<-function(tab){
