@@ -1,6 +1,6 @@
 fluidPage(
   
-  titlePanel('Campagnols et prédation'),
+  titlePanel('Campagnols, prédation et piégeage'),
   
   sidebarPanel(
     sliderInput('densren','Densité de prédateurs (ind/km2)', value = 1.25,min = 0, max = 20, step=0.25),
