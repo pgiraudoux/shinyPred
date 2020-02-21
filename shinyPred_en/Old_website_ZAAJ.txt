@@ -1,0 +1,121 @@
+<multi>
+[fr]
+
+{La question de l'impact des prédateurs sur les populations de proies est très difficile à traiter en écologie, car, dans le monde réel, de multiples prédateurs, dont les effectifs (mouvements, reproduction) et les préférences alimentaires varient non linéairement et se combinent, peuvent consommer de multiples proies dont les effectifs varient aussi non linéairement}.
+
+{{But du modèle:}} 
+
+Le modèle ci-dessous, extrêmement simple, permet de percevoir que {{l'impact majeur de la prédation s'effectue pendant la phase de faible densité des populations de campagnols}}.
+
+Complémentairement, il permet aussi de {{mesurer l'impact du piégeage}} (avec ou sans prédateur) sur la dynamique des populations.
+
+{{Exemples:}}
+
+Les paramètres sont pré-réglés pour correspondre à une densité vraisemblable de renards dans la ZELAC - un site de suivi et expérimental, près de Bians-les-Usiers. En les changeants (curseurs), on peut constater facilement que {{l'impact de la prédation est très important à basse densité}}, mais extrêmement faible à forte densité de campagnols (par exemple, augmentez la valeur de densité initiale de population de campagnols, en début de saison de reproduction, par exemple à 100 ind./ha et voyez en l'effet). On peut également voir quel est l'impact interannuel d'une configuration de paramètres en utilisant la valeur de densité de campagnols obtenue en fin de simulation comme valeur initiale de la simulation suivante.
+
+On peut également {{importer un calendrier de piégeage des campagnols}} sous forme de fichier texte, délimité par des tabulations[[Dans Excel, "Enregistrer sous...", puis sélectionner l'option "Texte (séparateur: tabulation) (*.txt)"]], avec deux colonnes, la première donnant le jour de piégage (compris entre 2 et 360 - les numéros du jour dans l'année comptés à partir du 1<sup>er</sup> mars, début de la saison de reproduction; 2 = 2 mars, 360 = 360<sup>ème</sup> jour après le 1er mars), et la deuxième le nombre total de campagnols piégés chaque jour. Le fichier ci-dessous contient 3 fichiers d'exemples, et un fichier de mise à zéro. Une fois téléchargé et dézippé, vous pouvez importer chacun des tableaux avec le bouton "Browse".
+
+<doc543|center>
+
+{{Le modèle (cliquez sur l'image):}}
+
+<a href="https://pgiraudoux.shinyapps.io/ShinyPred/" target="_blank"<img544|center></a>
+
+{{Le système est simplifié ainsi:}}
+
+- l'effectif de prédateurs est constant;
+- la réponse fonctionnelle est de type [Holling II->https://en.wikipedia.org/wiki/Functional_response#Type_II] (pour faire court, la variation de la proportion de campagnols dans le régime sature à 100% avec de fortes densités de campagnols);
+<img540|center>
+- le taux intrinsèque de croissance de la population de campagnols (r<sub>0</sub>) fait qu'une femelle de campagnol produit, par l’emboîtement des générations, potentiellement ~ 100 campagnols (50 femelles) pendant une saison de reproduction;
+- la croissance est [logistique->https://en.wikipedia.org/wiki/Logistic_function#In_ecology:_modeling_population_growth], et la [capacité biotique->https://fr.wikipedia.org/wiki/Capacit%C3%A9_porteuse] est fixée au nombre maximum de campagnols que le milieu peut supporter;
+- la saison de reproduction commence au 1<sup>er</sup> mars et dure 8 mois, ensuite pendant 4 mois la reproduction s'arrête (aucune autre mortalité autre que celle due  à la prédation et le piégeage n'est prise en compte pendant cette période).
+
+{{Mises en garde:}}
+
+- attention à l'échelle de l'axe des y, elle varie pour optimiser la présentation, en maximisant la distance apparente entre les valeurs minimales et maximales de y; quand la densité initiale est proche de K, de petites différences  apparaissent alors très amplifiées graphiquement (mais seulement graphiquement).
+- prise en compte du piégeage seul: il suffit de mettre la densité de prédateurs ou leur consommation journalière à zéro.
+- prise en compte de la prédation: actuellement, {{on est pas en mesure d'établir de façon fiable la densité de l'ensemble des prédateurs présents par km<sup>2</sup> et leur consommation}}. On y travaille à partir des données de comptage ZELAC (premiers résultats attendus dans le courant de l'hiver 2019-2020). A partir des consommations journalières ci-dessous on peut néanmoins représenter une communauté de prédateurs en créant un prédateur "virtuel", à partir d'un tableau similaire à celui ci-dessous.  On règle le curseur à 1 prédateur par km<sup>2</sup> et on lui attribue la consommation journalière de toute la communauté, par exemple, ici  29.1 campagnols terrestres consommés par jour. {Les chiffres du tableau ci-dessous sont donnés à titre d'exemple hypothétique, mais ne correspondent pas à une mesure réellement effectuée}.
+
+|{{Nom commun}}|{{densité (ind./km<sup>2</sup>}})|{{g consommé/jour/individu}}|{{n campagnols (80g) consommés/jour}}|
+|Buse variable|3|100|3.8|
+|Milan royal|0.2|100|0.3|
+|Faucon crécerelle|1|20|0.3|
+|Chouette hulotte|1|50|0.6|
+|Hibou moyen duc|1|30|0.4|
+|Corneille noire|1|50|0.6|
+|Grand corbeau|0.1|100|0.1|
+|Héron cendré|0.1|150|0.2|
+|Renard roux|1.25|500|7.8|
+|Blaireau d'Europe|1|500|6.3|
+|Fouine d'Europe|1|150|1.9|
+|Belette d'Europe|2|30|0.8|
+|Hermine|2|150|3.8|
+|Chat forestier|0.5|400|2.5|
+||||29.1|
+
+- attention aux résultats obtenus par ce type de modèle quand la densité initiale de campagnols dépasse K; là, à cause de la croissance logistique, le taux d'accroissement de la population devient négatif, et le modèle n'est donc plus pertinent (le déclin est alors intrinsèque, même sans prédateur). Ici, la valeur d'entrée est automatiquement corrigée pour que la valeur de densité initiale ne puisse pas dépasser K.
+
+{{Contact et code: }}
+-* [Patrick Giraudoux ->https://chrono-environnement.univ-fcomte.fr/spip.php?page=perso&nom=GIRAUDOUX&prenom=Patrick]
+-* [Code du modèle sur Github->https://github.com/pgiraudoux/shinyPred]
+
+[en]
+{The question of the impact of predators on prey populations is very difficult to deal with in ecology because, in the real world, multiple predators whose numbers (movements, reproduction) and food preferences vary nonlinearly and combine, and they can consume multiple prey whose numbers also vary nonlinearly.}
+
+{{Purpose of the model:}}
+
+The model below, extremely simple, permit to show that {{the major impact of predation occurs during the phase of low density of voles populations.}}
+
+Complementarily, it also makes it possible to {{measure the impact of trapping}} (with or without predators) on population dynamics.
+
+{{Examples:}}
+
+The parameters are pre-set to match a likely density of foxes in the ZELAC - a monitoring and experimental site near Bians-les-Usiers. By changing them (sliders), one can easily see that {{the impact of predation is very important at low density}}, but extremely low at high density of voles (for example, increase the initial population density value of voles, at the beginning of the reproduction season, for example at 100 ind./ha and see the effect). One can also see what is the interannual impact of a configuration of parameters by using the vole density value obtained at the end of the simulation as the initial value of the following simulation.
+
+{{A trapping calendar for voles can also be imported as a text file}}, delimited by tabs, with two columns, the first giving the trapping day (between 2 and 360 - the numbers of the day in the year counted from March 1st, start of the breeding season, 2 = March 2<sup>nd</sup>, 360 = 360<sup>th</sup> day after March 1<sup>st</sup>), and the second the total number of voles trapped each day. The file below contains 3 sample files, and a zeroing file. Once downloaded and unzipped, you can import each table with the "Browse" button.
+
+<doc554|center>
+
+{{The model (clic on the image):}}
+
+<a href="https://pgiraudoux.shinyapps.io/ShinyPred_en/" target="_blank"<img544|center></a>
+
+{{The system is simplified as follows:}}
+
+- the number of predators is constant;
+- the functional response is of the Holling II type (in short, the variation in the proportion of voles in the diet saturates at 100% with high densities of voles);
+<img540|center>
+- the intrinsic rate of voles population growth (r<sub>0</sub>) is set up assuming that one vole female produces, by embeding generations, potentially 100 voles (50 females) during a breeding season;
+- the growth is logistic, and the biotic capacity is fixed to the maximum number of voles that the habitat can support;
+- the breeding season begins on March 1 and lasts 8 months, then for 4 months the breeding stops (no mortality other than that due to predation and trapping is taken into account during this period).
+
+{{Caveats :}}
+
+- attention to the y-axis scale, it varies to optimize the display, maximizing the apparent distance between the minimum and maximum values ​​of y; when the initial density is close to K, small differences then appear very magnified graphically (but only graphically).
+- accounting for trapping alone: ​​simply set the predator density or their daily consumption to zero.
+- taking into account predation: currently,{{ it is not possible to reliably determine the density of all predators present per km<sup>2</sup> and their consumption}}. Research on this issue is ongoing, based on ZELAC count data (first results expected during the winter of 2019-2020). From the daily consumptions below, one can nevertheless represent a community of predators by creating a "virtual" predator, from a table similar to the one below. Set the slider to 1 predator per km<sup>2</sup> and give it the daily consumption of the whole community, for example, here 29.1 terrestrial voles consumed per day. {The figures in the table below are given as a hypothetical example, but do not correspond to a measurement actually performed.}
+
+|{{Common name}}|{{Density (ind./km<sup>2</sup>}})|{{g consumed/day/ind.}}|{{n voles (80g) consumed/day}}|
+|Common buzzard|3|100|3.8|
+|Red kitel|0.2|100|0.3|
+|Kestrel|1|20|0.3|
+|Tawny owl|1|50|0.6|
+|Hibou moyen duc|1|30|0.4|
+|Long-eared owl|1|50|0.6|
+|Raven|0.1|100|0.1|
+|Grey heron|0.1|150|0.2|
+|Red fox|1.25|500|7.8|
+|Badger|1|500|6.3|
+|Stone marten|1|150|1.9|
+|Weasel|2|30|0.8|
+|Stoat|2|150|3.8|
+|Wildcat|0.5|400|2.5|
+||||29.1|
+
+- be careful with the results obtained by this type of model when the initial density of voles exceeds K; there, because of logistic growth, the population growth rate becomes negative, and the model is no longer relevant (the decline is intrinsic, even without predators). Here, the input value is automatically corrected so that the initial density value cannot exceed K.
+
+
+{{Contact and code: }}
+-* [Patrick Giraudoux ->https://chrono-environnement.univ-fcomte.fr/spip.php?page=perso&nom=GIRAUDOUX&prenom=Patrick]
+-* [Model code on Github->https://github.com/pgiraudoux/shinyPred]
+</multi>

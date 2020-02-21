@@ -71,19 +71,19 @@ function(input, output, session) {
  
   output$plot1 <- renderPlot({ # envoie le graphe
     par(mar=c(5.1,4.1,4.1,3))
-    plot(1:length(dens2()$Nt),dens2()$Nt*2,type="l",las=1,xlab="Jours",ylab="N campagnols/ha",ylim=range(dens2()$Nt*2,dens2()$Ntr1p*2))
+    plot(1:length(dens2()$Nt),dens2()$Nt*2,type="l",las=1,xlab="Days",ylab="N voles/ha",ylim=range(dens2()$Nt*2,dens2()$Ntr1p*2))
     lines(1:length(dens2()$Nt),dens2()$Ntr1p*2,col="green")
     lines(1:length(dens2()$Nt),dens2()$Ntr1*2,col="red")
     axis(4,at=dens2()$Nt[length(dens2()$Nt)]*2,labels=round(dens2()$Nt[length(dens2()$Nt)]*2,0),col.axis="black",col.ticks="black",las=1)
     axis(4,at=dens2()$Ntr1p[length(dens2()$Ntr1p)]*2,labels=round(dens2()$Ntr1p[length(dens2()$Ntr1p)]*2,0),col.axis="green",col.ticks="green",las=1)
     axis(4,at=dens2()$Ntr1[length(dens2()$Ntr1)]*2,labels=round(dens2()$Ntr1[length(dens2()$Ntr1)]*2,0),col.axis="red",col.ticks="red",las=1)
-    mtext("Tous les modèles sont faux, certains sont utiles",side=1,line=4,adj=0,cex=0.8)
+    mtext("All models are wrong, some are useful",side=1,line=4,adj=0,cex=0.8)
     # legend(list(x=0,y=max(dens2()$Nt)),legend=c(expression("Sans predateur"),bquote(.(input$densren)~ind./km^2)),lty=1,col=c("black","red"),bty="n") # solution Bert Gunter
     legend(list(x=0,y=max(dens2()$Nt)*2),
            legend=as.expression(list(
-             "Sans prédateur",
-             bquote(.(input$densren) * " ind."/"km"^2 * "(sans piégeage)"),
-             "avec piégeage"
+             "Without predator",
+             bquote(.(input$densren) * " ind."/"km"^2 * "(without trapping)"),
+             "with trapping"
            )),
            lty=1,col=c("black","red","green"),bty="n") # solution Peter Dalgaard
 
