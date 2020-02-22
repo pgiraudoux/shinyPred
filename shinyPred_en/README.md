@@ -4,7 +4,7 @@ This is a shiny app to analyse the impact of predation and trapping on a growing
 
 ## Import trapping plan file
 
-A trapping plant file is just a text file tab delimited with two headed colums. In the file 'trapping1_mar2june.txt', you have the following
+A trapping plan file is just a text file tab delimited with two headed colums. In the file 'trapping1_mar2june.txt', you have the following
 
 
 ```
