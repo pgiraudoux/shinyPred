@@ -1,4 +1,4 @@
-# shinyPred
+# shinyPred_en
 
 This is a shiny app to analyse the impact of predation and trapping on a growing vole population
 
