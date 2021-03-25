@@ -1,0 +1,18 @@
+- prise en compte de la prédation: actuellement, {{on est pas en mesure d'établir de façon fiable la densité de l'ensemble des prédateurs présents par km<sup>2</sup> et leur consommation}}. On y travaille à partir des données de comptage ZELAC (premiers résultats attendus dans le courant de l'hiver 2019-2020). A partir des consommations journalières ci-dessous on peut néanmoins représenter une communauté de prédateurs en créant un prédateur "virtuel", à partir d'un tableau similaire à celui ci-dessous.  On règle le curseur à 1 prédateur par km<sup>2</sup> et on lui attribue la consommation journalière de toute la communauté, par exemple, ici  29.1 campagnols terrestres consommés par jour. {Les chiffres du tableau ci-dessous sont donnés à titre d'exemple hypothétique, mais ne correspondent pas à une mesure réellement effectuée}.
+
+|{{Nom commun}}|{{densité (ind./km<sup>2</sup>}})|{{g consommé/jour/individu}}|{{n campagnols (80g) consommés/jour}}|
+|Buse variable|3|100|3.8|
+|Milan royal|0.2|100|0.3|
+|Faucon crécerelle|1|20|0.3|
+|Chouette hulotte|1|50|0.6|
+|Hibou moyen duc|1|30|0.4|
+|Corneille noire|1|50|0.6|
+|Grand corbeau|0.1|100|0.1|
+|Héron cendré|0.1|150|0.2|
+|Renard roux|1.25|500|7.8|
+|Blaireau d'Europe|1|500|6.3|
+|Fouine d'Europe|1|150|1.9|
+|Belette d'Europe|2|30|0.8|
+|Hermine|2|150|3.8|
+|Chat forestier|0.5|400|2.5|
+||||29.1|
